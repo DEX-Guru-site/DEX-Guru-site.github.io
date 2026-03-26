@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DEX Guru — Cross-Chain DEX Analytics, Token Research &amp; Trading Guide (2026)</title>
+  <meta name="description" content="Complete DEX Guru guide (2026): how DEX Guru's cross-chain analytics work, how to research tokens and liquidity pools, read charts, track wallets, understand trading volume data, use DEX Guru for due diligence, and avoid scam tokens — with a deep FAQ.">
+  <meta name="author" content="Crypto Finance Experts">
+  <link rel="canonical" href="https://dex-guru-guide.example.com/">
+  <link rel="icon" type="image/png" href="gur.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dex-guru-guide.example.com/">
+  <meta property="og:title" content="DEX Guru — Cross-Chain DEX Analytics &amp; Token Research Guide (2026)">
+  <meta property="og:description" content="Practical DEX Guru guide: cross-chain token analytics, pool data, wallet tracking, chart reading, due diligence workflow, and scam detection.">
+  <meta property="og:image" content="cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DEX Guru — DEX Analytics &amp; Token Research Guide (2026)">
+  <meta name="twitter:description" content="How DEX Guru works, cross-chain token analytics, pool research, wallet tracking, and due diligence for 2026.">
+
+  <style>
+    :root {
+      --t:    #2DD4BF;
+      --t2:   #14B8A6;
+      --t3:   #0D9488;
+      --ta:   #99F6E4;
+
+      --ink:   #F0FDFA;
+      --sub:   #CCFBF1;
+      --muted: #94A3B8;
+      --dim:   #64748B;
+
+      --bg:    #060C0B;
+      --card:  rgba(255,255,255,.028);
+      --line:  rgba(255,255,255,.07);
+      --line-t:rgba(45,212,191,.11);
+
+      --ok:   #34D399;
+      --warn: #FBBF24;
+      --err:  #F87171;
+
+      --r:  12px;
+      --rl: 18px;
+      --gap: 1.2rem;
+      --sh: 0 8px 28px rgba(0,0,0,.55);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+    html { scroll-behavior: smooth }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 800px 420px at 0%   0%,  rgba(13,148,136,.09), transparent 55%),
+        radial-gradient(ellipse 600px 340px at 100% 10%, rgba(45,212,191,.05), transparent 50%),
+        radial-gradient(ellipse 500px 300px at 50%  98%, rgba(20,184,166,.05), transparent 55%);
+      color: var(--muted);
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: var(--t); text-decoration: none }
+    a:hover { text-decoration: underline }
+    img { max-width: 100%; height: auto; display: block }
+    strong { color: #E6FFFA; font-weight: 600 }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.4rem }
+
+    h1,h2,h3,h4 { color: var(--ink); line-height: 1.25 }
+    h1 { font-size: clamp(2rem,5vw,3.2rem); font-weight: 800; letter-spacing: -.4px }
+    h2 { font-size: clamp(1.25rem,2.5vw,1.75rem); font-weight: 700; margin-top: 1.8rem; padding-top: .7rem; border-top: 1px solid var(--line) }
+    h3 { font-size: 1.08rem; font-weight: 700; color: var(--sub) }
+    p,li,td,th { font-size: 1rem; line-height: 1.75 }
+    .lead { font-size: 1.08rem; color: #CBD5E1 }
+
+    header.hero { padding: clamp(2.5rem,6vw,5rem) 0 clamp(2rem,4vw,3.5rem); border-bottom: 1px solid var(--line) }
+    .hero-card {
+      background: var(--card); border: 1px solid var(--line-t);
+      border-radius: var(--rl); padding: clamp(1.4rem,3.5vw,2.2rem); box-shadow: var(--sh);
+    }
+    .brand-row { display: flex; align-items: center; gap: .9rem; margin-bottom: 1rem }
+    .brand-logo {
+      width: 54px; height: 54px; border-radius: 13px;
+      border: 1px solid rgba(45,212,191,.20); background: rgba(13,148,136,.08);
+      padding: .3rem; object-fit: contain; box-shadow: 0 6px 18px rgba(0,0,0,.40); flex: 0 0 auto;
+    }
+    .brand-label { color: var(--dim); font-size: .85rem; font-weight: 600; text-transform: uppercase; letter-spacing: .4px }
+    .brand-sub   { color: var(--muted); font-size: .85rem }
+
+    .cta-center { display: flex; justify-content: center; margin-top: 1.6rem }
+    .cta {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: linear-gradient(135deg, #2DD4BF, #14B8A6 50%, #0D9488);
+      color: #012825; padding: 1.1rem 2.5rem;
+      border-radius: 13px; font-weight: 800; font-size: 1.05rem;
+      box-shadow: 0 0 0 1px rgba(45,212,191,.22), 0 6px 20px rgba(20,184,166,.22), 0 20px 44px rgba(13,148,136,.18);
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform .16s, box-shadow .16s, filter .16s;
+    }
+    .cta:hover {
+      transform: translateY(-3px) scale(1.02); filter: brightness(1.07);
+      text-decoration: none; color: #012825;
+      box-shadow: 0 0 0 1px rgba(45,212,191,.35), 0 10px 26px rgba(20,184,166,.30), 0 26px 52px rgba(13,148,136,.24);
+    }
+
+    .note {
+      border-left: 3px solid var(--t); padding: .8rem 1rem;
+      background: rgba(13,148,136,.08); border-radius: 0 9px 9px 0;
+      color: var(--sub); margin-top: 1rem;
+    }
+
+    section.step-guide { padding: clamp(2rem,5vw,3.5rem) 0 }
+    .steps { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .step {
+      background: var(--card); border: 1px solid var(--line);
+      border-top: 2px solid rgba(45,212,191,.22); border-radius: var(--r);
+      padding: 1.25rem; box-shadow: var(--sh); transition: transform .18s;
+    }
+    .step:hover { transform: translateY(-3px) }
+    .step .icon {
+      width: 44px; height: 44px; border-radius: 9px;
+      display: inline-grid; place-items: center;
+      background: rgba(13,148,136,.10); margin-bottom: .65rem;
+      font-weight: 800; font-size: .95rem; color: var(--t);
+      border: 1px solid rgba(45,212,191,.18);
+    }
+
+    main .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--r); padding: 1.4rem; margin: 1.2rem 0; box-shadow: var(--sh);
+    }
+    main .card > h2:first-child { margin-top: 0; border-top: none; padding-top: 0 }
+
+    .toc { border: 1px solid var(--line-t); background: rgba(13,148,136,.05); border-radius: var(--r); padding: 1.1rem 1.3rem }
+    .toc strong { color: var(--ink) }
+    .toc ul { margin: .5rem 0 0; padding-left: 1.1rem }
+    .toc li { margin: .28rem 0; font-size: .96rem }
+    .toc a { font-weight: 600 }
+
+    .grid-2 { display: grid; gap: var(--gap); grid-template-columns: 1fr }
+    .callout-grid { display: grid; gap: var(--gap); grid-template-columns: 1fr; margin-top: .8rem }
+    .mini { background: rgba(255,255,255,.02); border: 1px solid var(--line); border-radius: var(--r); padding: 1rem }
+    .mini h3 { margin-bottom: .35rem }
+    .kpi-badges { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .55rem }
+    .kpi-badges span {
+      border: 1px solid rgba(45,212,191,.18); background: rgba(13,148,136,.08);
+      color: var(--sub); padding: .26rem .54rem; border-radius: 999px; font-size: .87rem; font-weight: 600;
+    }
+
+    .table-wrap { overflow-x: auto; border-radius: var(--r); border: 1px solid var(--line) }
+    table { width: 100%; border-collapse: collapse; min-width: 480px }
+    th,td { padding: .8rem .95rem; border-bottom: 1px solid var(--line); text-align: left }
+    th { background: rgba(13,148,136,.07); color: var(--ink); font-weight: 700; font-size: .93rem }
+    tr.hi { background: rgba(13,148,136,.04) }
+    tr:hover td { background: rgba(255,255,255,.018) }
+    tr:last-child td { border-bottom: none }
+    .ok { color: var(--ok) } .warn { color: var(--warn) } .err { color: var(--err) }
+
+    .eeat { background: var(--card); border: 1px solid var(--line-t); border-radius: var(--r); padding: 1.4rem; box-shadow: var(--sh) }
+    .eeat > h2:first-child { margin-top: 0; border-top: none; padding-top: 0 }
+
+    .faq-item { border-bottom: 1px solid var(--line); padding: .9rem 0 }
+    .faq-item:last-child { border-bottom: none }
+    .faq-button { all: unset; display: flex; justify-content: space-between; align-items: flex-start; width: 100%; cursor: pointer; gap: 1rem }
+    .faq-button:focus-visible { outline: 2px solid var(--t); border-radius: 4px }
+    .faq-button h3 { margin: 0; font-weight: 700; font-size: 1rem; line-height: 1.4 }
+    .faq-content { max-height: 0; overflow: hidden; transition: max-height .26s ease }
+    .faq-content.open { padding-top: .65rem }
+    .faq-plus { font-weight: 800; font-size: 1.35rem; color: var(--t); flex: 0 0 auto; line-height: 1; transition: transform .2s }
+    .faq-button[aria-expanded="true"] .faq-plus { transform: rotate(45deg) }
+
+    @media(min-width:860px){
+      .steps { grid-template-columns: repeat(4,1fr) }
+      .grid-2 { grid-template-columns: 1fr 1fr }
+      .callout-grid { grid-template-columns: 1fr 1fr }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero" role="banner">
+  <div class="container">
+    <div class="hero-card">
+      <div class="brand-row">
+        <img class="brand-logo" src="gur.png" alt="DEX Guru logo">
+        <div>
+          <div class="brand-label">Complete Analytics Guide</div>
+          <div class="brand-sub">Cross-Chain DEX Data · Token Research · Pool Analytics · Wallet Tracking</div>
+        </div>
+      </div>
+
+      <h1>DEX Guru</h1>
+      <p class="lead" style="margin-top:.7rem">
+        The complete guide to <strong>DEX Guru</strong> — a <strong>cross-chain DEX analytics platform</strong>
+        that aggregates real-time trading data, liquidity pool metrics, and token information
+        across dozens of blockchains and hundreds of DEXs. Understand how to use DEX Guru
+        for <strong>token due diligence</strong>, how to read <strong>pool liquidity and volume data</strong>,
+        how <strong>wallet tracking</strong> reveals smart money movement,
+        how to spot <strong>rugpull and honeypot warning signs</strong> before trading,
+        and how DEX Guru compares to other <strong>on-chain analytics tools</strong>.
+      </p>
+
+      <div class="cta-center">
+        <a href="#" class="cta" aria-label="Open DEX Guru">
+          <span>⬡</span> Open DEX Guru
+        </a>
+      </div>
+
+      <div class="note">
+        <strong>How to use this guide:</strong> DEX Guru is a research and analytics tool —
+        not a DEX or wallet. It shows you data about tokens, pools, and wallets across chains.
+        Use it to verify information before trading, not as a signal to trade blindly.
+        High volume ≠ safe token. Always do your own on-chain due diligence.
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STEPS -->
+<section class="step-guide" aria-labelledby="how-works">
+  <div class="container">
+    <h2 id="how-works" style="margin-top:0;border-top:none;padding-top:0">
+      How to Use DEX Guru: Search → Analyse → Verify → Decide
+    </h2>
+    <div class="steps" role="list">
+      <article class="step" role="listitem">
+        <div class="icon">01</div>
+        <h3>Search any token or pool</h3>
+        <p>Enter a token name, ticker, or contract address. DEX Guru surfaces real-time price, market cap, liquidity, 24h volume, and trading activity across every chain and DEX where the token trades.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">02</div>
+        <h3>Analyse liquidity and volume quality</h3>
+        <p>Inspect the liquidity pool depth, volume-to-liquidity ratio, top liquidity providers, and transaction history. Healthy tokens have deep, distributed liquidity. Red flags include thin pools and concentrated LP ownership.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">03</div>
+        <h3>Track wallets and smart money</h3>
+        <p>Look up any wallet address to see its full DEX trading history, token holdings, and recent activity across chains. Use this to verify insider wallet patterns or track known smart money addresses.</p>
+      </article>
+      <article class="step" role="listitem">
+        <div class="icon">04</div>
+        <h3>Cross-reference before trading</h3>
+        <p>Use DEX Guru data alongside block explorers and contract audits to build a complete picture before taking a position. No single tool is sufficient — DEX Guru is one powerful layer in a due diligence stack.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<main class="container" role="main">
+
+  <section class="card toc" aria-label="Table of Contents">
+    <strong>On this page — DEX Guru:</strong>
+    <ul>
+      <li><a href="#overview">What is DEX Guru and what data does it provide</a></li>
+      <li><a href="#chains">Supported chains and DEXs on DEX Guru</a></li>
+      <li><a href="#token-page">Reading a DEX Guru token page: metrics explained</a></li>
+      <li><a href="#pool-analytics">Pool analytics: liquidity depth, volume, and LP concentration</a></li>
+      <li><a href="#wallet-tracking">Wallet tracking: how to follow smart money and insider activity</a></li>
+      <li><a href="#due-diligence">DEX Guru due diligence workflow: step-by-step token research</a></li>
+      <li><a href="#red-flags">Red flags and scam detection: what DEX Guru data reveals</a></li>
+      <li><a href="#guru-token">GURU token: utility and ecosystem role</a></li>
+      <li><a href="#comparison">DEX Guru vs Dextools vs GeckoTerminal vs DEXScreener</a></li>
+      <li><a href="#best-practices">Best practices for using DEX Guru effectively</a></li>
+      <li><a href="#troubleshooting">Troubleshooting: missing tokens, stale data, wrong chain</a></li>
+      <li><a href="#eeat">Authoritative sources &amp; references</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section class="card" id="overview">
+    <h2>What Is DEX Guru and What Data Does It Provide?</h2>
+    <p>
+      <strong>DEX Guru</strong> is a cross-chain decentralised exchange analytics platform that aggregates
+      trading data from dozens of DEXs across multiple blockchains into a single, unified interface.
+      It was built to solve a specific problem: when a token trades across Uniswap, SushiSwap,
+      Curve, and PancakeSwap simultaneously on different chains, no single DEX's own interface
+      shows you the full picture. DEX Guru does.
+    </p>
+    <p>
+      Beyond aggregated price and volume data, DEX Guru provides wallet-level analytics —
+      letting you look up any address to see its complete DEX trading history, token holdings,
+      and cross-chain activity. This makes it a powerful tool for both token research
+      and understanding the behaviour of specific wallets.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>For token researchers</h3>
+        <p style="color:var(--muted)">Analyse any token across all chains and pools simultaneously — real-time price, liquidity depth, volume quality, holder distribution signals, and recent transaction patterns.</p>
+        <div class="kpi-badges"><span>Multi-chain</span><span>Real-time</span><span>Pool depth</span></div>
+      </div>
+      <div class="mini">
+        <h3>For wallet analysts</h3>
+        <p style="color:var(--muted)">Track any wallet's complete on-chain DEX activity — what they bought, sold, when, at what price, and across which chains. Essential for tracking smart money or verifying insider activity.</p>
+        <div class="kpi-badges"><span>Wallet history</span><span>Cross-chain</span><span>Smart money</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAINS -->
+  <section class="card" id="chains">
+    <h2>Supported Chains and DEXs on DEX Guru</h2>
+    <p>
+      DEX Guru aggregates data from a broad and expanding set of chains and DEX protocols.
+      Coverage spans the major EVM chains as well as select non-EVM networks.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Supported chains and DEXs">
+        <thead>
+          <tr><th>Chain</th><th>Key DEXs indexed</th><th>Data freshness</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi"><td>Ethereum</td><td>Uniswap v2/v3, SushiSwap, Curve, Balancer</td><td class="ok">Real-time</td></tr>
+          <tr><td>Arbitrum</td><td>Uniswap v3, SushiSwap, Camelot, GMX</td><td class="ok">Real-time</td></tr>
+          <tr class="hi"><td>BNB Chain</td><td>PancakeSwap, Biswap, ApeSwap</td><td class="ok">Real-time</td></tr>
+          <tr><td>Polygon</td><td>QuickSwap, Uniswap v3, SushiSwap</td><td class="ok">Real-time</td></tr>
+          <tr class="hi"><td>Optimism</td><td>Uniswap v3, Velodrome</td><td class="ok">Real-time</td></tr>
+          <tr><td>Avalanche</td><td>Trader Joe, Pangolin</td><td class="ok">Real-time</td></tr>
+          <tr class="hi"><td>Base</td><td>Uniswap v3, Aerodrome, BaseSwap</td><td class="ok">Real-time</td></tr>
+          <tr><td>Fantom</td><td>SpookySwap, SpiritSwap</td><td class="warn">Near real-time</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Coverage grows continuously:</strong> DEX Guru adds new chains and DEX protocols regularly.
+      If a token you're researching doesn't appear, verify whether its chain is currently indexed.
+      The official DEX Guru documentation lists the current full chain and protocol coverage.
+    </div>
+  </section>
+
+  <!-- TOKEN PAGE -->
+  <section class="card" id="token-page">
+    <h2>Reading a DEX Guru Token Page: Every Key Metric Explained</h2>
+    <p>
+      A DEX Guru token page surfaces a dense set of data points. Knowing which metrics to focus on
+      and how to interpret them is the difference between useful research and noise.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Token page metrics">
+        <thead>
+          <tr><th>Metric</th><th>What it shows</th><th>What to look for</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Price (per DEX)</td>
+            <td>Current price on each pool where the token trades</td>
+            <td>Large price discrepancies between pools = arbitrage opportunity or data lag</td>
+          </tr>
+          <tr>
+            <td>Market cap</td>
+            <td>Price × circulating supply (where verifiable)</td>
+            <td>Compare with fully diluted valuation — large FDV/MC gap signals future dilution</td>
+          </tr>
+          <tr class="hi">
+            <td>Liquidity (TVL in pool)</td>
+            <td>Total value of tokens in the trading pool</td>
+            <td>Low liquidity = high slippage and rugpull risk; aim for deep, stable pools</td>
+          </tr>
+          <tr>
+            <td>24h volume</td>
+            <td>Total value traded in the last 24 hours</td>
+            <td>Volume-to-liquidity ratio &gt;10× is suspicious — possible wash trading</td>
+          </tr>
+          <tr class="hi">
+            <td>Transactions</td>
+            <td>Buy/sell count and size over time</td>
+            <td>Healthy tokens show balanced buys/sells; extreme buy-only patterns are a red flag</td>
+          </tr>
+          <tr>
+            <td>Price chart</td>
+            <td>Historical price action on the selected pool</td>
+            <td>Parabolic pumps with no consolidation are common in low-quality tokens</td>
+          </tr>
+          <tr class="hi">
+            <td>Top traders</td>
+            <td>Wallets with the highest volume on this token</td>
+            <td>Identify whether large wallets are accumulating or distributing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- POOL ANALYTICS -->
+  <section class="card" id="pool-analytics">
+    <h2>Pool Analytics: Reading Liquidity Depth, Volume Quality, and LP Concentration</h2>
+    <p>
+      The liquidity pool behind a token is the infrastructure that makes trading possible.
+      Understanding pool health is essential for assessing both trading cost and exit risk.
+    </p>
+
+    <div class="callout-grid">
+      <div class="mini">
+        <h3>Liquidity depth</h3>
+        <p style="color:var(--muted)">How much capital is locked in the pool's two-sided position. Deeper liquidity means lower slippage for your trade. A pool with $50K TVL will give you much worse execution on a $10K buy than a $5M TVL pool.</p>
+        <div class="kpi-badges"><span>Slippage impact</span><span>Exit risk indicator</span></div>
+      </div>
+      <div class="mini">
+        <h3>LP concentration</h3>
+        <p style="color:var(--muted)">What percentage of pool liquidity is owned by the top 1–3 liquidity providers. If one wallet owns 80%+ of the liquidity, they can remove it instantly — causing a price collapse. This is the mechanism behind most rugpulls.</p>
+        <div class="kpi-badges"><span>Rugpull signal</span><span>Concentration risk</span></div>
+      </div>
+      <div class="mini">
+        <h3>Volume/liquidity ratio</h3>
+        <p style="color:var(--muted)">A ratio of 24h volume to total pool liquidity. Ratios above 5–10× are unusual and often indicate wash trading — artificial volume generated to make a low-quality token appear active and attract buyers.</p>
+        <div class="kpi-badges"><span>Wash trading signal</span><span>Manipulation indicator</span></div>
+      </div>
+      <div class="mini">
+        <h3>Liquidity lock status</h3>
+        <p style="color:var(--muted)">Whether the LP tokens are locked in a time-lock contract (e.g. Unicrypt, Team.Finance). Locked liquidity reduces — but does not eliminate — rugpull risk. Always verify the lock expiry date.</p>
+        <div class="kpi-badges"><span>Lock verification</span><span>Time-lock expiry</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WALLET TRACKING -->
+  <section class="card" id="wallet-tracking">
+    <h2>Wallet Tracking on DEX Guru: How to Follow Smart Money and Spot Insider Activity</h2>
+    <p>
+      One of DEX Guru's most powerful features is its wallet analytics. Any on-chain address
+      can be searched to reveal its complete DEX trading history across all indexed chains and protocols.
+    </p>
+
+    <div class="table-wrap">
+      <table aria-label="Wallet tracking use cases">
+        <thead>
+          <tr><th>Use case</th><th>What to look for</th><th>How to act on it</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Track known smart money</td>
+            <td>Early entries into tokens before they run, consistent profitable trades</td>
+            <td>Monitor their activity for new positions as a research signal (not blind copying)</td>
+          </tr>
+          <tr>
+            <td>Verify project team wallets</td>
+            <td>Whether team wallets are selling while publicly hyping the token</td>
+            <td>Significant team wallet selling = strong exit signal</td>
+          </tr>
+          <tr class="hi">
+            <td>Identify token insiders</td>
+            <td>Wallets that bought at very early stages, held, and are now distributing</td>
+            <td>Large early wallet distributions at current price = caution</td>
+          </tr>
+          <tr>
+            <td>Detect sybil patterns</td>
+            <td>Many wallets buying the same token at the same time from the same funding source</td>
+            <td>Coordinated sybil activity often precedes artificial pump and distribution</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>Wallet tracking is research, not signals:</strong> Seeing a known profitable wallet
+      buy a token does not mean you should buy it. They may already be planning to exit when
+      retail follows. Use wallet data as one input in a broader due diligence process.
+    </div>
+  </section>
+
+  <!-- DUE DILIGENCE -->
+  <section class="card" id="due-diligence">
+    <h2>DEX Guru Due Diligence Workflow: Step-by-Step Token Research Process</h2>
+    <p>
+      A systematic approach to token research using DEX Guru significantly reduces the chance
+      of trading into scams, low-quality projects, or manipulated markets.
+    </p>
+    <ol style="padding-left:1.3rem">
+      <li style="margin-bottom:.6rem">
+        <strong>Search by contract address</strong> — not by name or ticker. Many scam tokens impersonate
+        legitimate projects with similar names. The contract address is the only unambiguous identifier.
+      </li>
+      <li style="margin-bottom:.6rem">
+        <strong>Check liquidity depth and LP concentration</strong> — is there enough liquidity to exit
+        your intended position without severe slippage? Is liquidity concentrated in 1–2 wallets?
+      </li>
+      <li style="margin-bottom:.6rem">
+        <strong>Review volume-to-liquidity ratio</strong> — ratios above 5–10× warrant extra scepticism.
+        Cross-reference on Etherscan or equivalent to verify transaction legitimacy.
+      </li>
+      <li style="margin-bottom:.6rem">
+        <strong>Examine the transaction history</strong> — are buys and sells balanced? Are there large
+        wallet dumps interspersed with retail buys? Unusual patterns are red flags.
+      </li>
+      <li style="margin-bottom:.6rem">
+        <strong>Look up top trader wallets</strong> — when did they enter? Are they still holding or distributing?
+        Track 2–3 of the largest recent buyers to assess their behaviour pattern.
+      </li>
+      <li style="margin-bottom:.6rem">
+        <strong>Cross-reference with a contract auditor</strong> — DEX Guru shows trading data,
+        not contract code quality. Use Honeypot.is or a similar tool to verify the contract
+        isn't a honeypot (token that can be bought but not sold).
+      </li>
+      <li>
+        <strong>Verify socials and team independently</strong> — DEX Guru data is on-chain.
+        Off-chain legitimacy (team identity, GitHub activity, audit reports) must be verified separately.
+      </li>
+    </ol>
+  </section>
+
+  <!-- RED FLAGS -->
+  <section class="card" id="red-flags">
+    <h2>Red Flags and Scam Detection: What DEX Guru Data Reveals About Risky Tokens</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Red flag indicators">
+        <thead>
+          <tr><th>Red flag</th><th>What it looks like on DEX Guru</th><th>Risk it signals</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>LP concentration ≥ 80%</td>
+            <td>1–2 addresses own nearly all pool liquidity</td>
+            <td class="err">Rugpull — liquidity can be removed instantly</td>
+          </tr>
+          <tr>
+            <td>Volume/liquidity ratio &gt; 10×</td>
+            <td>$10M 24h volume on $500K liquidity pool</td>
+            <td class="err">Wash trading — artificial volume inflation</td>
+          </tr>
+          <tr class="hi">
+            <td>All-buy, no-sell transactions</td>
+            <td>Transaction log shows only buy swaps, zero sells</td>
+            <td class="err">Honeypot — contract blocks selling</td>
+          </tr>
+          <tr>
+            <td>Parabolic price, very recent launch</td>
+            <td>Token launched &lt; 48h ago, 1000%+ gain with thin liquidity</td>
+            <td class="warn">Pump and dump — likely coordinated exit incoming</td>
+          </tr>
+          <tr class="hi">
+            <td>Large wallet selling into retail buys</td>
+            <td>Top holder steadily reducing position as smaller wallets accumulate</td>
+            <td class="warn">Distribution — insiders exiting into retail demand</td>
+          </tr>
+          <tr>
+            <td>Unlocked or soon-expiring LP lock</td>
+            <td>LP tokens unlocking in &lt; 30 days or already unlocked</td>
+            <td class="warn">Increased rugpull risk window</td>
+          </tr>
+          <tr class="hi">
+            <td>Zero verified contract audit</td>
+            <td>No link to audit report in DEX Guru or token's own materials</td>
+            <td class="warn">Unverified contract — code risk unknown</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <strong>No single red flag is definitive</strong> — but multiple red flags together dramatically increase
+      risk. A token with high LP concentration, no audit, recent launch, and parabolic price
+      hits every major warning indicator simultaneously.
+    </div>
+  </section>
+
+  <!-- GURU TOKEN -->
+  <section class="card" id="guru-token">
+    <h2>GURU Token: Utility and Role in the DEX Guru Ecosystem</h2>
+    <p>
+      <strong>GURU</strong> is DEX Guru's native token, designed to unlock additional features
+      and align platform users with the protocol's development.
+    </p>
+    <ul style="padding-left:1.2rem; margin-top:.5rem">
+      <li style="margin-bottom:.5rem"><strong>Premium features:</strong> Holding GURU tokens unlocks advanced analytics features, extended wallet history, and priority data access on the DEX Guru platform.</li>
+      <li style="margin-bottom:.5rem"><strong>Governance:</strong> GURU holders participate in governance decisions about platform development, new chain integrations, and feature prioritisation.</li>
+      <li style="margin-bottom:.5rem"><strong>Staking:</strong> GURU staking has been offered to provide protocol revenue sharing and reward long-term token holders who support the platform's growth.</li>
+      <li><strong>Trader profiles:</strong> GURU enables on-chain trader profile features — associating wallet analytics with persistent identities for leaderboards and social trading context.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Check current GURU utility:</strong> Token utility features evolve with platform updates.
+      Verify the current GURU utility and staking terms in the official DEX Guru documentation
+      before acquiring tokens specifically for platform access or staking returns.
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="card" id="comparison">
+    <h2>DEX Guru vs Dextools vs GeckoTerminal vs DEXScreener: Choosing the Right Analytics Tool</h2>
+
+    <div class="table-wrap">
+      <table aria-label="Analytics platform comparison">
+        <thead>
+          <tr><th>Feature</th><th>DEX Guru</th><th>DEXScreener</th><th>GeckoTerminal</th><th>Dextools</th></tr>
+        </thead>
+        <tbody>
+          <tr class="hi">
+            <td>Cross-chain coverage</td>
+            <td class="ok">Broad</td>
+            <td class="ok">Very broad</td>
+            <td class="ok">Very broad</td>
+            <td class="warn">Good (EVM focus)</td>
+          </tr>
+          <tr>
+            <td>Wallet analytics</td>
+            <td class="ok">Strong — wallet history &amp; tracking</td>
+            <td class="warn">Basic</td>
+            <td class="warn">Limited</td>
+            <td class="ok">Good</td>
+          </tr>
+          <tr class="hi">
+            <td>Pool analytics depth</td>
+            <td class="ok">Detailed</td>
+            <td class="ok">Good</td>
+            <td class="ok">Good</td>
+            <td class="ok">Detailed</td>
+          </tr>
+          <tr>
+            <td>Native token</td>
+            <td class="ok">GURU (premium features)</td>
+            <td class="err">No</td>
+            <td class="err">No</td>
+            <td class="ok">DEXT</td>
+          </tr>
+          <tr class="hi">
+            <td>Free tier quality</td>
+            <td class="ok">Good</td>
+            <td class="ok">Excellent</td>
+            <td class="ok">Excellent</td>
+            <td class="warn">Limited without DEXT</td>
+          </tr>
+          <tr>
+            <td>API availability</td>
+            <td class="ok">Yes (developer API)</td>
+            <td class="ok">Yes</td>
+            <td class="ok">Yes</td>
+            <td class="warn">Limited free tier</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note" style="margin-top:1rem">
+      <strong>Practical recommendation:</strong> Use multiple tools. DEXScreener for quick initial
+      token lookups across chains, DEX Guru for deep wallet analytics and pool research,
+      GeckoTerminal for clean chart views and social links. No single platform covers everything —
+      a multi-tool approach is the professional standard.
+    </div>
+  </section>
+
+  <!-- BEST PRACTICES -->
+  <section class="card" id="best-practices">
+    <h2>Best Practices for Using DEX Guru Effectively and Safely</h2>
+    <ul style="padding-left:1.2rem">
+      <li style="margin-bottom:.5rem"><strong>Always search by contract address</strong>, not token name — DEX Guru's search will surface the correct contract, avoiding impersonator tokens with identical names.</li>
+      <li style="margin-bottom:.5rem"><strong>Treat DEX Guru as one layer of research</strong> — complement it with block explorers (Etherscan), contract auditors (Honeypot.is, Token Sniffer), and project socials. No single tool is sufficient.</li>
+      <li style="margin-bottom:.5rem"><strong>Evaluate liquidity before sizing a trade</strong> — check whether the pool has enough depth to absorb your position without major slippage, and whether you can exit at a reasonable price.</li>
+      <li style="margin-bottom:.5rem"><strong>Cross-check volume quality</strong> — high volume on low liquidity is almost always wash trading. Verify transaction patterns on the chain explorer before trusting volume-based signals.</li>
+      <li style="margin-bottom:.5rem"><strong>Use wallet tracking for context, not as copy-trading</strong> — smart money signals are informational, not directional. Following a wallet blindly without understanding the position is a common losing strategy.</li>
+      <li style="margin-bottom:.5rem"><strong>Verify DEX Guru data against the chain explorer</strong> — for critical due diligence, confirm key figures (LP ownership, recent large transactions) independently on Etherscan or the relevant chain explorer.</li>
+      <li><strong>Set realistic expectations for data freshness</strong> — DEX Guru updates continuously but may lag a few seconds to minutes during high chain congestion. For time-critical trades, use the chain's own block explorer for the most current state.</li>
+    </ul>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="card" id="troubleshooting">
+    <h2>Troubleshooting DEX Guru: Missing Tokens, Stale Data, and Wrong Chain Issues</h2>
+
+    <h3>"The token I'm looking for doesn't appear in DEX Guru"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>Search using the exact contract address rather than the token name — newly launched or low-volume tokens may not appear in name-based search results.</li>
+      <li>Verify the token's chain is currently supported by DEX Guru. Tokens on chains not yet indexed will not appear regardless of how you search.</li>
+      <li>Very new tokens (launched within the last few minutes to hours) may take a short time to be indexed after their first trades are confirmed on-chain.</li>
+    </ul>
+
+    <h3>"The price on DEX Guru looks different from what I see on the DEX"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>DEX Guru aggregates data from multiple pools — if a token trades on several pools with different prices, you may see blended or pool-specific data depending on the view selected.</li>
+      <li>Select the specific pool you're trading on to see that pool's exact current price rather than an aggregate view.</li>
+      <li>During periods of extreme volatility or chain congestion, DEX Guru's data may lag slightly. Always confirm the live price directly in the DEX interface before executing a trade.</li>
+    </ul>
+
+    <h3>"Wallet analytics show less history than I expected"</h3>
+    <ul style="padding-left:1.2rem">
+      <li>DEX Guru indexes only DEX trades — direct transfers, CEX withdrawals, and non-DEX contract interactions will not appear in the wallet history.</li>
+      <li>History depth may vary by chain — some chains have longer indexed history than others on the platform.</li>
+    </ul>
+
+    <div class="note">
+      <strong>Ground truth is always on-chain:</strong> DEX Guru is an analytics layer over blockchain data.
+      If anything looks incorrect, verify directly on the relevant chain's block explorer —
+      that is always the definitive source of truth.
+    </div>
+  </section>
+
+  <!-- EEAT -->
+  <section class="eeat" id="eeat" aria-labelledby="eeat-title">
+    <h2 id="eeat-title">DEX Guru: Authoritative References &amp; External Sources</h2>
+
+    <h3>DEX Guru — Official Sources</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://dex.guru/" target="_blank" rel="noopener nofollow">DEX Guru — Official Platform</a></li>
+      <li><a href="https://docs.dex.guru/" target="_blank" rel="noopener nofollow">DEX Guru — Official Documentation</a></li>
+      <li><a href="https://github.com/dex-guru" target="_blank" rel="noopener nofollow">DEX Guru — GitHub</a></li>
+    </ul>
+
+    <h3>Complementary DEX Analytics Tools</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://dexscreener.com/" target="_blank" rel="noopener nofollow">DEXScreener — Cross-Chain DEX Analytics</a></li>
+      <li><a href="https://www.geckoterminal.com/" target="_blank" rel="noopener nofollow">GeckoTerminal — On-chain DEX Data by CoinGecko</a></li>
+      <li><a href="https://www.dextools.io/" target="_blank" rel="noopener nofollow">Dextools — DEX Analytics &amp; Token Explorer</a></li>
+    </ul>
+
+    <h3>Token Safety &amp; Contract Verification</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://honeypot.is/" target="_blank" rel="noopener nofollow">Honeypot.is — Honeypot Contract Detector</a></li>
+      <li><a href="https://tokensniffer.com/" target="_blank" rel="noopener nofollow">Token Sniffer — Automated Token Scam Detector</a></li>
+      <li><a href="https://etherscan.io/" target="_blank" rel="noopener nofollow">Etherscan — Ethereum Block Explorer</a></li>
+    </ul>
+
+    <h3>On-chain Research &amp; DeFi Data</h3>
+    <ul style="padding-left:1.2rem">
+      <li><a href="https://defillama.com/" target="_blank" rel="noopener nofollow">DeFiLlama — Protocol TVL &amp; DeFi Analytics</a></li>
+      <li><a href="https://dune.com/browse/dashboards" target="_blank" rel="noopener nofollow">Dune Analytics — Custom On-chain Dashboards</a></li>
+    </ul>
+
+    <div class="note" style="margin-top:1.2rem">
+      <strong>About:</strong> Prepared by Crypto Finance Experts as a practical, SEO-oriented knowledge base for
+      <em>DEX Guru</em>: cross-chain analytics, token research, pool analytics, wallet tracking, scam detection, and due diligence workflow.
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="card" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" style="margin-top:0;border-top:none;padding-top:0">DEX Guru: Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f1" id="b1">
+        <h3>What is DEX Guru and what is it used for?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f1" class="faq-content" role="region" aria-labelledby="b1">
+        <p>DEX Guru is a cross-chain DEX analytics platform that aggregates real-time trading data, liquidity pool metrics, and wallet activity from dozens of DEXs across multiple blockchains. It's used by traders and researchers to analyse tokens across all chains simultaneously, track wallet behaviour, assess liquidity pool health, and identify red flags in token contracts and trading patterns before taking a position.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f2" id="b2">
+        <h3>Is DEX Guru free to use?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f2" class="faq-content" role="region" aria-labelledby="b2">
+        <p>DEX Guru offers a free tier with access to core analytics features — token pages, pool data, basic wallet tracking, and charts. Advanced features including extended wallet history, deeper analytics, and premium data access are unlocked by holding GURU tokens or subscribing to a paid plan. Check the official DEX Guru platform for current free vs. premium feature boundaries.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f3" id="b3">
+        <h3>How do I find a token on DEX Guru?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f3" class="faq-content" role="region" aria-labelledby="b3">
+        <p>Always search by contract address rather than token name or ticker. Name-based searches can surface impersonator tokens with identical names. The contract address is the only unambiguous identifier for a specific token on a specific chain. Copy it from the project's official website, official GitHub, or a verified CoinGecko/CoinMarketCap listing before searching.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f4" id="b4">
+        <h3>Can DEX Guru detect honeypot tokens?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f4" class="faq-content" role="region" aria-labelledby="b4">
+        <p>DEX Guru's transaction data can surface honeypot indicators indirectly — for example, a token with hundreds of buy transactions but zero sell transactions is a strong honeypot signal. However, DEX Guru does not run automated contract-level honeypot detection. For definitive honeypot checks, use a dedicated tool like Honeypot.is alongside DEX Guru's trading data.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f5" id="b5">
+        <h3>How accurate is DEX Guru's data?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f5" class="faq-content" role="region" aria-labelledby="b5">
+        <p>DEX Guru sources data directly from on-chain events — swap events, liquidity events, and transfer logs — making it highly accurate for indexed chains and protocols. Minor discrepancies can arise from indexing lag during high chain congestion or from aggregation differences across multiple pools for the same token. For critical decisions, verify key data points directly on the chain's block explorer.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f6" id="b6">
+        <h3>What does volume-to-liquidity ratio tell me?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f6" class="faq-content" role="region" aria-labelledby="b6">
+        <p>Volume-to-liquidity ratio compares the 24-hour trading volume to the total value locked in the pool. A ratio above 5–10× is unusual for legitimate tokens and often indicates wash trading — artificially inflated volume designed to make a low-quality or scam token appear active and attract organic buyers. Healthy, established tokens typically have volume-to-liquidity ratios below 1–2×.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f7" id="b7">
+        <h3>How do I track a specific wallet on DEX Guru?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f7" class="faq-content" role="region" aria-labelledby="b7">
+        <p>Enter any Ethereum or EVM-compatible wallet address directly into the DEX Guru search bar. The wallet page shows the address's complete DEX trading history across all indexed chains — tokens bought and sold, prices at time of trade, transaction sizes, and timing. You can bookmark wallet pages and return to monitor activity over time.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f8" id="b8">
+        <h3>How does DEX Guru compare to DEXScreener?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f8" class="faq-content" role="region" aria-labelledby="b8">
+        <p>Both cover cross-chain DEX data but with different strengths. DEXScreener has broader chain coverage and an excellent free tier making it ideal for quick token lookups. DEX Guru offers deeper wallet analytics and pool research, with a native GURU token that unlocks premium features. Most serious researchers use both: DEXScreener for initial discovery and broad coverage, DEX Guru for deeper wallet and pool analysis.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-button" aria-expanded="false" aria-controls="f9" id="b9">
+        <h3>What is the GURU token and should I buy it for platform access?</h3><span class="faq-plus">+</span>
+      </button>
+      <div id="f9" class="faq-content" role="region" aria-labelledby="b9">
+        <p>GURU is DEX Guru's native token that unlocks premium analytics features, governance participation, and staking rewards within the platform. Whether to acquire GURU for platform access depends on how heavily you use DEX Guru's analytics and whether the premium features justify the token's current price versus a subscription alternative. Evaluate the specific premium features you need before acquiring GURU solely for platform access.</p>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="container" role="contentinfo" style="padding:2.5rem 0; border-top:1px solid var(--line); margin-top:2rem">
+  <p style="color:var(--dim); font-size:.93rem">© 2026 DEX Guru Guide. Educational content with a research-first focus. Not financial advice.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      document.querySelectorAll('.faq-button').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        const c = document.getElementById(b.getAttribute('aria-controls'));
+        c.classList.remove('open'); c.style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        const content = document.getElementById(btn.getAttribute('aria-controls'));
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
